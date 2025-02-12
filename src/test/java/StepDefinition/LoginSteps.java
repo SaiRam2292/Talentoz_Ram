@@ -53,6 +53,7 @@ public class LoginSteps {
 
     @Then("I click on the check-in button")
     public void i_click_on_the_check_in_button() throws InterruptedException {
+        System.out.println("Checkin..................")
         wait.until(ExpectedConditions.elementToBeClickable(lp.getCheckinLocator()));
         lp.clickCheckin();
 

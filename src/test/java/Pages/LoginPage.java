@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.support.pagefactory.ByAll;
 
@@ -35,37 +36,20 @@ public class LoginPage {
 //    private By signinButton = By.id("btn_submit");
 //    private By checkin = By.id("div_Wid_DTR_Chk_btn_chIn_div_DshWdgtCon_4032");
 
-    // Getter methods for locators
-    public WebElement getUsernameLocator() {
-        return username;
-    }
-
-    public WebElement getPasswordLocator() {
-        return password;
-    }
-
-    public WebElement getSigninButtonLocator() {
-        return signinButton;
-    }
-
-    public WebElement getCheckinLocator() {
-        return checkin;
-    }
-
-    // Actions
+    // Actions with wait logic
     public void enterUsername(String user) {
-        username.sendKeys(user);
+        wait.until(ExpectedConditions.visibilityOf(username)).sendKeys(user);
     }
 
     public void enterPassword(String pass) {
-        password.sendKeys(pass);
+        wait.until(ExpectedConditions.visibilityOf(password)).sendKeys(pass);
     }
 
     public void clicksiginin() {
-        signinButton.click();
+        wait.until(ExpectedConditions.elementToBeClickable(signinButton)).click();
     }
 
     public void clickCheckin() {
-        checkin.click();
+        wait.until(ExpectedConditions.elementToBeClickable(checkin)).click();
     }
 }
